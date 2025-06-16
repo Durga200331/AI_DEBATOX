@@ -3,7 +3,7 @@ import axios from "axios";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import { useSpeechSynthesis } from "react-speech-kit";
 import { motion } from "framer-motion";
-import "./VoiceDebate.css";
+import "frontend/src/VoiceDebate.css";
 
 const removeEmojis = (text) => text.replace(/\p{Emoji}/gu, "");
 
