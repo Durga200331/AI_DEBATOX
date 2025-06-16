@@ -8,7 +8,10 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: ["http://localhost:3000", "https://debatox.netlify.app"] })); // Allow frontend communication
+app.use(cors({
+  origin: ["http://localhost:3000", "https://debatox.netlify.app"],
+  methods: ["GET", "POST"],
+}));
 
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
