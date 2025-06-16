@@ -1,5 +1,5 @@
 import React from "react";
-import VoiceDebate from "frontend/src/Voicedebate.js";
+import VoiceDebate from "./Voicedebate.js";
 
 function App() {
   return (
