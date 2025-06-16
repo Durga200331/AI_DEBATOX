@@ -43,7 +43,7 @@ const VoiceDebate = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5001/start-debate", { name, age, topic });
+      const response = await axios.post("https://ai-debatox.onrender.com/start-debate", { name, age, topic });
       setDebateStarted(true);
       setConversation([{ sender: "Debatox", text: response.data.message }]);
       speakAIResponse(removeEmojis(response.data.message));
@@ -62,7 +62,7 @@ const VoiceDebate = () => {
     resetTranscript();
 
     try {
-      const response = await axios.post("http://localhost:5001/debate", { name, userArgument: userStatement });
+      const response = await axios.post("https://ai-debatox.onrender.com/debate", { name, userArgument: userStatement });
       const aiResponse = response.data.aiResponse;
 
       setConversation((prev) => [...prev, { sender: "Debatox", text: aiResponse }]);
@@ -75,7 +75,7 @@ const VoiceDebate = () => {
   // End debate
   const handleEndDebate = async () => {
     try {
-      await axios.post("http://localhost:5001/end-debate", { name });
+      await axios.post("https://ai-debatox.onrender.com/end-debate", { name });
       setDebateStarted(false);
       setConversation([{ sender: "System", text: "Debate ended." }]);
       setName("");
